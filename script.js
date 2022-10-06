@@ -59,3 +59,23 @@ const addWordToDom = () => {
   word.innerHTML = randomWord;
 };
 addWordToDom();
+
+//update score function
+
+const updateScore = () => {
+  score++;
+  scoreEl.innerHTML = score;
+};
+
+// event listener
+
+text.addEventListener("input", (e) => {
+  const insertedText = e.target.value;
+
+  if (insertedText === randomWord) {
+    addWordToDom();
+    updateScore();
+    // clear the input field
+    e.target.value = "";
+  }
+});
